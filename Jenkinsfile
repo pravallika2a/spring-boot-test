@@ -15,7 +15,9 @@ pipeline {
         }
         stage('Build Image') {
             steps {
-                echo 'Testing..'
+                script {
+                    sh "docker build -t sbt:v1.0.0 ."
+                }
             }
         }
         stage('Post Image') {
