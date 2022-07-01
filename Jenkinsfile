@@ -16,7 +16,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 script {
-                    sh "docker build -t sbt:v1.0.0 ."
+                    sh "docker build -t edaraanand/sbt:v1.0.0 ."
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
                 script {
                     withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'dockerHubPwd')]) {
                         sh "docker login -u edaraanand -p ${dockerHubPwd}"
-                        sh "docker push edaraanand/sbt"
+                        sh "docker push edaraanand/sbt:v1.0.0"
                     }
                 }
             }
