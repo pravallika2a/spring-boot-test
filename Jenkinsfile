@@ -23,9 +23,9 @@ pipeline {
         stage('Post Image') {
             steps {
                 script {
-                    withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'docker-hub-pwd')]) {
-                        sh 'docker login -u edaraanand -p ${docker-hub-pwd}'
-                        sh 'docker push edaraanand/sbt:v1.0.0'
+                    withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'dockerHubPwd')]) {
+                        sh "docker login -u edaraanand -p ${dockerHubPwd}"
+                        sh "docker push edaraanand/sbt:v1.0.0"
                     }
                 }
             }
