@@ -22,7 +22,12 @@ pipeline {
         }
         stage('Post Image') {
             steps {
-                echo 'Deploying....'
+                script {
+                    withCredentials([string(credentialsId: 'docker-hub-pwd', variable: 'docker-hub-pwd')]) {
+                        sh "docker login -u edaraanand -p ${docker-hub-pwd}"
+                        sh "docker push edaraanand/sbt:v1.0.0"
+                    }
+                }
             }
         }
     }
