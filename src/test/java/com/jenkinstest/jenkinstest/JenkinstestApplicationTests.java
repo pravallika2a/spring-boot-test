@@ -11,19 +11,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class JenkinstestApplicationTests {
-
-	@Test
-	void contextLoads() {
-		TestController homeController = new TestController();
-		String result = homeController.getHelloWorld();
-		assertEquals(result, "Helloooo Andy.. How are you doing today???");
-	}
-
 	@Test
 	void testHello() {
 		TestController homeController = new TestController();
 		String result = homeController.getHelloWorld();
-		assertEquals(result, "Helloooo Andy.. How are you doing today??");
+		assertEquals(result, "Helloooo Andy.. How are you doing today???");
 	}
 
 }
