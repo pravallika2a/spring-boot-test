@@ -41,6 +41,7 @@ pipeline {
                         remote.identityFile = sshKey
                         sshCommand remote: remote, command: "docker stop hello-app"
                         sshCommand remote: remote, command: "docker container prune -f"
+                        sshCommand remote: remote, command: "docker edaraanand/sbt:v1.0.0 -f"
                         sshCommand remote: remote, sudo: true, command: "docker run -d --name hello-app -p 8085:8080 edaraanand/sbt:v1.0.0"
                     }
                 }
