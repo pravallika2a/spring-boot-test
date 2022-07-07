@@ -23,7 +23,7 @@ class JenkinstestApplicationTests {
 	void testHello() {
 		TestController homeController = new TestController();
 		String result = homeController.getHelloWorld();
-		assertEquals(result, "Helloooo Andy.. How are you doing today???");
+		assertEquals(result, "Helloooo Andy.. How are you doing today??");
 	}
 
 }
